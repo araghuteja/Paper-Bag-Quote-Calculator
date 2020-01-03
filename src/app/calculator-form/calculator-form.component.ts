@@ -54,15 +54,11 @@ export class CalculatorFormComponent implements OnInit {
     return this.getNumberOfSheetPerKg() ? Number((this.bagDimensionsForm.value.ratePerKilo / Math.floor(this.getNumberOfSheetPerKg())).toFixed(2)) : 0;
   }
 
-  getCostToPrint(): number {
-    return this.getNumberOfSheetPerKg() ? Number((this.bagDimensionsForm.value.costToPrint * Math.floor(this.getNumberOfSheetPerKg())).toFixed(2)) : 0;
-  }
-
   getRatePerUnit(): number {
-    return  this.getCostPerUnit() || this.getCostToPrint() ? Number((1.8 * (this.getCostPerUnit() + this.getCostToPrint() + 3.19)).toFixed(2)) : 0;
+    return  this.getCostPerUnit() ? Number((1.8 * (this.getCostPerUnit() + this.bagDimensionsForm.value.costToPrint + 3.19)).toFixed(2)) : 0;
   }
 
   getSheetSellingPrice() {
-    return this.getCostPerUnit() || this.getCostToPrint() ? ((1 + (this.bagDimensionsForm.value.margin / 100)) * this.getRatePerUnit()).toFixed(2) : 0;
+    return this.getCostPerUnit() ? ((1 + (this.bagDimensionsForm.value.margin / 100)) * this.getRatePerUnit()).toFixed(2) : 0;
   }
 }
