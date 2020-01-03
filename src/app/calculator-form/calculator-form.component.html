@@ -1,0 +1,76 @@
+<form class="PaperBagDetails" [formGroup]="bagDimensionsForm">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                <label>
+                    Height:
+                    <input type="number" formControlName="height">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Width:
+                    <input type="number" formControlName="width">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Bottom:
+                    <input type="number" formControlName="bottom">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    LIP:
+                    <input type="number" formControlName="lip">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Paper Thickness in GSM:
+                    <input type="number" formControlName="paperThickness">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Rate per Kilo:
+                    <input type="number" formControlName="ratePerKilo">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Cost to Print:
+                    <input type="number" formControlName="costToPrint">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Margin:
+                    <input type="number" formControlName="margin">
+                </label>
+            </p>
+        </div>
+    </div>
+
+</form>
+
+
+<hr />
+
+<div>
+    <p>
+        <label>
+            Sheet Size (L x W):
+            {{getSheetSize()}}
+        </label>
+    </p>
+
+
+</div>
