@@ -68,7 +68,43 @@
     <p>
         <label>
             Sheet Size (L x W):
-            {{getSheetSize()}}
+            {{getSheetSize()}} cm &#178;
+        </label>
+    </p>
+    <p>
+        <label>
+            Weight per Sheet:
+            {{getWeightPerSheet()}} grams
+        </label>
+    </p>
+    <p>
+        <label>
+            Number of Sheets per Kg (N):
+            {{getNumberOfSheetPerKg()}} => {{Math.floor( getNumberOfSheetPerKg() )}}
+        </label>
+    </p>
+    <p>
+        <label>
+            Cost per Unit (C):
+            {{getCostPerUnit()}} &#8377;
+        </label>
+    </p>
+    <p>
+        <label>
+            Cost to Print (P):
+            {{getCostToPrint()}} &#8377;
+        </label>
+    </p>
+    <p>
+        <label>
+            Rate per Unit (RPU):
+            {{getRatePerUnit()}} &#8377;
+        </label>
+    </p>
+    <p>
+        <label>
+            Sheet Selling Price (SSP):
+            {{getSheetSellingPrice()}} &#8377;
         </label>
     </p>
 
