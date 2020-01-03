@@ -43,22 +43,22 @@ export class CalculatorFormComponent implements OnInit {
   }
 
   getWeightPerSheet(): number{
-    return Number((this.getSheetLength() * this.getSheetWidth() / 10000 * this.bagDimensionsForm.value.paperThickness).toFixed(2));
+    return this.getSheetLength() * this.getSheetWidth() / 10000 * this.bagDimensionsForm.value.paperThickness;
   }
 
   getNumberOfSheetPerKg(): number {
-    return this.getWeightPerSheet() ? Number((1000 / this.getWeightPerSheet()).toFixed(2)) : 0;
+    return this.getWeightPerSheet() ? 1000 / this.getWeightPerSheet() : 0;
   }
 
   getCostPerUnit(): number {
-    return this.getNumberOfSheetPerKg() ? Number((this.bagDimensionsForm.value.ratePerKilo / Math.floor(this.getNumberOfSheetPerKg())).toFixed(2)) : 0;
+    return this.getNumberOfSheetPerKg() ? this.bagDimensionsForm.value.ratePerKilo / this.getNumberOfSheetPerKg() : 0;
   }
 
   getRatePerUnit(): number {
-    return  this.getCostPerUnit() ? Number((1.8 * (this.getCostPerUnit() + this.bagDimensionsForm.value.costToPrint + 3.19)).toFixed(2)) : 0;
+    return  this.getCostPerUnit() ? 1.08 * (this.getCostPerUnit() + this.bagDimensionsForm.value.costToPrint + 3.19) : 0;
   }
 
   getSheetSellingPrice() {
-    return this.getCostPerUnit() ? ((1 + (this.bagDimensionsForm.value.margin / 100)) * this.getRatePerUnit()).toFixed(2) : 0;
+    return this.getCostPerUnit() ? (1 + (this.bagDimensionsForm.value.margin / 100)) * this.getRatePerUnit() : 0;
   }
 }
